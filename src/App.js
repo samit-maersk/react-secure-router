@@ -1,4 +1,4 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import './App.css';
 
 function App() {
@@ -6,9 +6,10 @@ function App() {
     <div className="App">
       <h2>React Router Example</h2>
       <nav>
-        <Link className='menu__link' to={`/root`}>root</Link>
-        <Link className='menu__link' to={`/non-secure-page`}>Non Secure Page</Link>
-        <Link className='menu__link' to={`/secure-page`}>Secure Page</Link>
+        <NavLink className={({isActive, isPending}) => isActive ? 'menu__link active' : 'menu__link'} to={`/`}>root</NavLink>
+        <NavLink className={({isActive, isPending}) => isActive ? 'menu__link active' : 'menu__link'} to={`/non-secure-page`}>Non Secure Page</NavLink>
+        <NavLink className={({isActive, isPending}) => isActive ? 'menu__link active' : 'menu__link'} to={`/secure-page`}>Secure Page</NavLink>
+        <NavLink className={({isActive, isPending}) => isActive ? 'menu__link active' : 'menu__link'} to={`/logout`}>Logout</NavLink>
       </nav>
       <hr/>
       <Outlet />

@@ -14,6 +14,12 @@ code {
 
 nav .menu__link {
   margin: 0px 10px;
+  text-decoration: none;
+}
+
+nav .active {
+  border-bottom: 3px solid blue;
+  border-radius: 5px;
 }
 .nonsecurepage__child {
   border-radius: 2px;
@@ -32,4 +38,9 @@ nav .menu__link {
   margin-right: auto;
   width: 50%;
 
+}
+.error {
+  margin-right: auto;
+  margin-left: auto;
+  width: 50%;
 }

@@ -12,14 +12,21 @@ import ErrorPage from './components/ErrorPage';
 import NonSecurePage from './pages/NonSecurePage'
 import SecurePage from './pages/SecurePage'
 import Login from './pages/Login'
+import Auth from './components/Auth';
+import Logout from './pages/Logout';
+
+const logout = () => {
+  console.log('Logout Invoked')
+}
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
-        path: "root",
+        path: "",
         element: <Root />,
         errorElement: <ErrorPage />
       },
@@ -28,18 +35,24 @@ const router = createBrowserRouter([
         element: <NonSecurePage />,
         errorElement: <ErrorPage />,
         loader: () => {
+          //get this from api
           const numbers = [1,2,3,4,5]
           return numbers;
         }
       },
       {
         path: "secure-page",
-        element: <SecurePage />,
+        element: <Auth><SecurePage /></Auth>,
         errorElement: <ErrorPage />
       },
       {
         path: "login",
         element: <Login />
+      },
+      {
+        path: "logout",
+        action: logout,
+        element: <Logout />
       }
     ],
   },
